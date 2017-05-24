@@ -35,32 +35,29 @@ class Version20170523115654 extends AbstractMigration implements ContainerAwareI
         $em = $this->container->get('doctrine.orm.entity_manager');
 
         $categories = $em->getRepository(Category::class)->findAll();
-        $category = $categories[0];
 
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba Aukštadvaryje');
         $sodyba->setBody('Sodyba ant ežero kranto');
-        $sodyba->setCategory($category);
+        $sodyba->setCategory($categories[0]);
         $em->persist($sodyba);
 
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba Trakuose');
         $sodyba->setBody('Sodyba ant ežero kranto su pirtimi');
-        $sodyba->setCategory($category);
+        $sodyba->setCategory($categories[0]);
         $em->persist($sodyba);
-
-        $category = $categories[1];
 
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba Labanoro girioje');
         $sodyba->setBody('Sodyba visuryje miško');
-        $sodyba->setCategory($category);
+        $sodyba->setCategory($categories[1]);
         $em->persist($sodyba);
 
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba prie Neries');
         $sodyba->setBody('Sodyba ant upės kranto');
-        $sodyba->setCategory($category);
+        $sodyba->setCategory($categories[1]);
         $em->persist($sodyba);
 
 

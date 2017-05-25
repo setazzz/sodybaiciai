@@ -36,10 +36,16 @@ class SodybaAdmin extends AbstractAdmin
                 ->add('category', 'sonata_type_model', array(
                     'class' => 'AppBundle\Entity\Category',
                     'property' => 'name',
-            ))
-            ->end()
-        ;
+//                    'multiple' => true,
+//                    'expanded' => true,
+                ))
+//                ->add('sodyba_perks', 'sonata_type_model', array(
+//                    'class' => 'AppBundle\Entity\SodybaPerks',
+//                    'property' => 'name',
+//                ))
+            ->end();
     }
+
 
     protected function configureListFields(ListMapper $listMapper)
     {

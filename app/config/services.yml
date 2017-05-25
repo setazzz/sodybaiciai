@@ -17,3 +17,8 @@ services:
         arguments: [~, AppBundle\Entity\Sodyba, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Sodyba }
+    admin.perks:
+        class: AppBundle\Admin\PerksAdmin
+        arguments: [~, AppBundle\Entity\Perks, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Perks }

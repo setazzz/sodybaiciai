@@ -47,6 +47,11 @@ class Sodyba
      */
     private $category;
 
+//    /**
+//     * @ORM\ManyToOne(targetEntity="Perks", inversedBy="blogPosts")
+//     */
+//    private $perks;
+
 
     /**
      * Get id
@@ -139,5 +144,23 @@ class Sodyba
     {
         return $this->category;
     }
+
+//    /**
+//     * @return mixed
+//     */
+//    public function getPerks()
+//    {
+//        return $this->perks;
+//    }
+//
+//    /**
+//     * @param mixed $perks
+//     */
+//    public function setPerks($perks)
+//    {
+//        $this->perks = $perks;
+//    }
+
+
 }
 

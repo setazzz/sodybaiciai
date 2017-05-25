@@ -1,0 +1,66 @@
+/app/config/parameters.yml
+/build/
+/phpunit.xml
+/var/*
+/bower_components/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+!var/logs/.gitkeep
+!/var/sessions
+/var/sessions/*
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
+/vendor/*
+/web/bundles/
+
+# binaries
+node_modules/
+
+# IDE project files
+.buildpath
+.project
+.settings
+.idea/
+nbproject/
+
+# temporary files
+*~
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# OS X media cache files
+.DS_Store
+.DS_Store?
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## Folder config file
+Desktop.ini
+
+## Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Must put a ".gitkeep" file in empty folders you want to keep
+!/*/.gitkeep
+
+# exclude ctags meta-info
+.ctags
+tags
+
+# PHP Code Sniffer formatetr
+.php_cs.cache
+.phpcd/

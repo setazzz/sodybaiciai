@@ -47,6 +47,16 @@ class Sodyba
      */
     private $category;
 
+//    /**
+//     * @ORM\ManyToOne(targetEntity="SodybaPerks", inversedBy="blogPosts")
+//     */
+//    private $sodybaPerks;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Image", inversedBy="blogPosts")
+     */
+    private $image;
+
 
     /**
      * Get id
@@ -138,6 +148,38 @@ class Sodyba
     public function getCategory()
     {
         return $this->category;
+    }
+
+//    /**
+//     * @return mixed
+//     */
+//    public function getSodybaPerks()
+//    {
+//        return $this->sodybaPerks;
+//    }
+//
+//    /**
+//     * @param mixed $perks
+//     */
+//    public function setSodybaPerks($perks)
+//    {
+//        $this->sodybaPerks = $sodybaPerks;
+//    }
+
+    /**
+     * @return mixed
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
     }
 }
 

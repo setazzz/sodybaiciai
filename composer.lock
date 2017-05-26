@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a83b80cdd73ec5832e51456e8d713351",
+    "content-hash": "143bd949f8fbba4f0bb659d9a5198806",
     "packages": [
         {
             "name": "cocur/slugify",
@@ -1274,6 +1274,62 @@
                 "sql"
             ],
             "time": "2014-01-12T16:20:24+00:00"
+        },
+        {
+            "name": "kami/booking-bundle",
+            "version": "1.0",
+            "target-dir": "Kami/BookingBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kamilabs/BookingBundle.git",
+                "reference": "13064d345273914f2bef46dcf322e2874f22c989"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kamilabs/BookingBundle/zipball/13064d345273914f2bef46dcf322e2874f22c989",
+                "reference": "13064d345273914f2bef46dcf322e2874f22c989",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "~1.6",
+                "doctrine/orm": "~2.5",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">2.8",
+                "symfony/symfony": ">2.8",
+                "twig/extensions": "~1.4",
+                "twig/twig": "~1.3"
+            },
+            "require-dev": {
+                "doctrine/doctrine-fixtures-bundle": "dev-master",
+                "phpunit/phpunit": "~5.5"
+            },
+            "suggest": {
+                "doctrine/mongodb-odm": "1.0.*@dev"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Kami\\BookingBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Iakov Mishchenko",
+                    "email": "iakov@kamilabs.com"
+                }
+            ],
+            "description": "Adds some booking functionality to your Symfony project",
+            "homepage": "https://github.com/kamilabs/BookingBundle",
+            "keywords": [
+                "availability",
+                "booking",
+                "calendar"
+            ],
+            "time": "2017-02-06T12:48:59+00:00"
         },
         {
             "name": "knplabs/knp-menu",

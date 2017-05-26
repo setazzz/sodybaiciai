@@ -39,11 +39,18 @@ class SodybaAdmin extends AbstractAdmin
 //                    'multiple' => true,
 //                    'expanded' => true,
                 ))
+            ->add('image', 'sonata_type_model', array(
+                'class' => 'AppBundle\Entity\Image',
+                'property' => 'name',
+//                    'multiple' => true,
+//                    'expanded' => true,
+            ))
 //                ->add('sodyba_perks', 'sonata_type_model', array(
 //                    'class' => 'AppBundle\Entity\SodybaPerks',
 //                    'property' => 'name',
 //                ))
-            ->end();
+            ->end()
+        ;
     }
 
 

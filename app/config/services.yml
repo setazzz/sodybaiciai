@@ -22,3 +22,8 @@ services:
         arguments: [~, AppBundle\Entity\Perks, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Perks }
+    admin.image:
+        class: AppBundle\Admin\ImageAdmin
+        arguments: [~, AppBundle\Entity\Image, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Image }

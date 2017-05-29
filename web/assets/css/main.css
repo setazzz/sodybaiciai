@@ -1,0 +1,172 @@
+body {
+    font-family: Poppins, sans-serif;
+}
+
+.backgroundCover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.invert a {
+  color: #fe5d4c;
+}
+
+.invert a:focus, .invert a:hover {
+  color: #fff;
+}
+
+#topPanel {
+  background-color: rgba(10,25,35, 0.7);
+  opacity: 0.7;
+}
+
+.topPanelMessage {
+  margin: 12px 0;
+  font-size: 12px;
+  color: #889298;
+}
+
+#navigationBar {
+  margin-left: 100px;
+}
+
+.navbar-transparent a {
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.nav > li > a:focus, .nav > li > a:hover {
+  background-color: inherit;
+}
+
+#entryContent {
+  position: relative;
+  top: -113px;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  background-image: url('https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/09/home-1.jpg');
+  padding-top: 200px;
+  padding-bottom: 400px;
+  margin-bottom: -113px;
+}
+
+#entryContent h1 {
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  color: #fff;
+}
+
+#entryContent h2, #entryContent p {
+  color: #fff;
+}
+
+.boxHolder * {
+    max-width: 100%;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+.rentWrapper {
+  position: relative;
+}
+
+.imageInner {
+  overflow: hidden;
+  padding: 0;
+}
+
+.imageInner:before {
+  content: '';
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom,rgba(11,25,35,0) 0%,#0b1923 100%);
+  background-image: linear-gradient(rgba(11, 25, 35, 0) 0%, rgb(11, 25, 35) 100%);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  opacity: 1;
+  z-index: 1;
+}
+
+.textWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  text-align: left;
+  z-index: 2;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  transition: all 0.5s ease;
+  transition-property: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+  transition-delay: initial;
+}
+
+.status {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.status span {
+  padding: 12px 14px 11px 15px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  font-size: .875em;
+  line-height: 1.2;
+  display: inline-block;
+  background-color: #fe5d4c;
+  color: #fff;
+}
+
+.price, .header, .button {
+  width: 100%;
+  display: block;
+}
+
+.price {
+  color: #fe5d4c;
+  font-weight: 700;
+}
+
+.header a {
+  color: #fff;
+  font-weight: 700;
+}
+
+.button a {
+  background-color: transparent;
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 0px;
+  border: 3px solid #fe5d4c;
+  text-transform: uppercase;
+}
+
+#footer {
+  background-color: #0a1923;
+  color: #889298;
+  padding: 20px 0;
+}

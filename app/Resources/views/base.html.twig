@@ -1,13 +1,172 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        {% endblock %}
+        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+      {% if is_granted('IS_AUTHENTICATED_FULLY') == false %}
+      <div id="topPanel">
+        <div class="container invert">
+          <div class="row">
+            <div class="col-xs-12">
+              <p class="topPanelMessage">Please <a href="{{ path('fos_user_security_login') }}">login</a> or <a href="{{ path('fos_user_registration_register') }}">register</a> to create a new listing</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+        <nav id="mainNav" class="navbar navbar-transparent">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+              </button>
+              <a class="navbar-brand page-scroll" href="#page-top">Sodybaičiai</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-left" id="navigationBar">
+                <li>
+                  <a href="{{ path('homepage') }}">Home</a>
+                </li>
+                <li>
+                  <a href="{{ path('catalog') }}">Catalog</a>
+                </li>
+                <li>
+                  <a href="{{ path('fos_message_thread_new') }}">Message</a>
+                </li>
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                <li>
+                  <a href="/admin">Admin panel</a>
+                </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div id="entryContent" class="backgroundCover">
+          <div class="container">
+            <h1>Sveiki atvykę!</h1>
+            <h2>Sodybaičių šeimos sodybų rezervacijos sistema.</h2>
+
+            <p>Ši svetainė yra kurta tik mokymosi tikslais, visa joje esanti informacija yra išgalvota. Jei kas nors sutampa su realybe, tai yra tik atsitiktinumas.</p>
+          </div>
+        </div>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="entry-content">
+           <div class="" id="">
+              <div class="container-fluid">
+                 <div class="">
+                    <div class="row">
+                       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                          <div class="clearfix">
+                             <aside id="" class="">
+                                <div class="boxHolder row">
+                                   <div class="imageInner col-xs-12 col-md-6 col-xl-6">
+                                      <figure class="rentWrapper">
+                                         <div class="">
+                                            <img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_25305907_original-960x567.jpg" alt="A beach house at Baja California peninsula" width="960" height="567">
+                                            <div class="status"><span>rent</span></div>
+                                         </div>
+                                         <figcaption class="textWrapper">
+                                            <h3 class="price">$1,342.00</h3>
+                                            <h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-beach-house-at-baja-california-peninsula/" title="A beach house at Baja California peninsula">A beach house at Baja Californ…</a></h3>
+                                            <div class="button">
+                                               <a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-beach-house-at-baja-california-peninsula/" title="A beach house at Baja California peninsula" class="btn btn-default"><span class="btn__text">Read more</span></a>
+                                            </div>
+                                         </figcaption>
+                                      </figure>
+                                   </div>
+                                   <div class="imageInner col-xs-12 col-md-6 col-xl-6">
+                                      <figure class="rentWrapper">
+                                         <div class="">
+                                            <img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_20348621_original-960x567.jpg" alt="Hunting mansion in Kentucky" width="960" height="567">
+                                            <div class="status"><span>rent</span></div>
+                                         </div>
+                                         <figcaption class="textWrapper">
+                                            <h3 class="price">$1,200.00</h3>
+                                            <h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/hunting-mansion-in-kentucky/" title="Hunting mansion in Kentucky">Hunting mansion in Kentucky</a></h3>
+                                            <div class="button">
+                                               <a href="https://ld-wp.template-help.com/wordpress_61275/properties/hunting-mansion-in-kentucky/" title="Hunting mansion in Kentucky" class="btn btn-default"><span class="btn__text">Read more</span></a>
+                                            </div>
+                                         </figcaption>
+                                      </figure>
+                                   </div>
+                                   <div class="imageInner col-xs-12 col-md-4 col-xl-4">
+                                      <figure class="rentWrapper">
+                                         <div class="">
+                                            <img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_46803805_original-640x483.jpg" alt="Erie Lakeside house, MI" width="640" height="483">
+                                            <div class="status"><span>rent</span></div>
+                                         </div>
+                                         <figcaption class="textWrapper">
+                                            <h3 class="price">$3,400.00</h3>
+                                            <h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/erie-lakeside-house-mi/" title="Erie Lakeside house, MI">Erie Lakeside house, MI</a></h3>
+                                            <div class="button">
+                                               <a href="https://ld-wp.template-help.com/wordpress_61275/properties/erie-lakeside-house-mi/" title="Erie Lakeside house, MI" class="btn btn-default"><span class="btn__text">Read more</span></a>
+                                            </div>
+                                         </figcaption>
+                                      </figure>
+                                   </div>
+                                   <div class="imageInner col-xs-12 col-md-4 col-xl-4">
+                                      <figure class="rentWrapper">
+                                         <div class="">
+                                            <img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_29214455_original-640x483.jpg" alt="A new townhouse in  the Appalachian  mountains" width="640" height="483">
+                                            <div class="status"><span>reny</span></div>
+                                         </div>
+                                         <figcaption class="textWrapper">
+                                            <h3 class="price">$3,400.00</h3>
+                                            <h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-new-townhouse-in-the-appalachian-mountains/" title="A new townhouse in  the Appalachian  mountains">A new townhouse in the Appalac…</a></h3>
+                                            <div class="button">
+                                               <a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-new-townhouse-in-the-appalachian-mountains/" title="A new townhouse in  the Appalachian  mountains" class="btn btn-default"><span class="btn__text">Read more</span></a>
+                                            </div>
+                                         </figcaption>
+                                      </figure>
+                                   </div>
+                                   <div class="imageInner col-xs-12 col-md-4 col-xl-4">
+                                      <figure class="rentWrapper">
+                                         <div class="">
+                                            <img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_46803805_original-640x483.jpg" alt="A beach house in Orlando, Florida" width="640" height="483">
+                                            <div class="status"><span>rent</span></div>
+                                         </div>
+                                         <figcaption class="textWrapper">
+                                            <h3 class="price">$2,030.00</h3>
+                                            <h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-beach-house-in-orlando-florida-2/" title="A beach house in Orlando, Florida">A beach house in Orlando, Flor…</a></h3>
+                                            <div class="button">
+                                               <a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-beach-house-in-orlando-florida-2/" title="A beach house in Orlando, Florida" class="btn btn-default"><span class="btn__text">Read more</span></a>
+                                            </div>
+                                         </figcaption>
+                                      </figure>
+                                   </div>
+                                </div>
+                             </aside>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </div>
+        </div>
+        <footer id="footer">
+          <div class="container">
+            <span>All rights reserved</span>
+          </div>
+        </footer>
+        {% block javascripts %}
+
+        {% endblock %}
+         <script src="{{ asset('assets/js/main.js') }}"></script>
     </body>
 </html>

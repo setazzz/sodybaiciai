@@ -1,0 +1,21 @@
+{
+  "name": "Sodybaiciai",
+  "authors": [
+    "Giedrius <m.gieedrius@gmail.com>"
+  ],
+  "description": "Bootstrap instaliacija",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "web/assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

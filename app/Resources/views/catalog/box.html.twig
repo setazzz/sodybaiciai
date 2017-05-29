@@ -1,0 +1,14 @@
+<li class="box">
+    <div class="box-image">
+        {% if item.image.url %}
+            <img src="{{ item.image.url }}", class="box-image">
+        {% endif %}
+    </div>
+    <div class="description">
+        <h3>{{ item.title }}</h3>
+        <br/>
+        <h6>{{ item.category.name }}</h6>
+        <br/>
+        <p>{{ item.body }}</p>
+        </div>
+</li>

@@ -45,6 +45,15 @@ class SodybaAdmin extends AbstractAdmin
 //                    'multiple' => true,
 //                    'expanded' => true,
             ))
+            //            ->add('perks', 'entity', array(
+//                'class' => 'AppBundle:Perks',
+////                'property' => 'name',
+////                'choices' => $this->getPerks(),
+//                'multiple' => true,
+//                'required' => false,
+////                'btn_add' => null,
+//                ))
+//
 //                ->add('sodyba_perks', 'sonata_type_model', array(
 //                    'class' => 'AppBundle\Entity\SodybaPerks',
 //                    'property' => 'name',

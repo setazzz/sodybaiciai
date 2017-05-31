@@ -23,8 +23,6 @@ class CatalogController extends Controller
 
         $list = $this->getDoctrine()->getRepository('AppBundle:Sodyba')->findAll();
 
-
-        // replace this example code with whatever you need
         return $this->render('catalog/index.html.twig', [
             'list' => $list,
         ]);

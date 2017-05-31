@@ -38,7 +38,7 @@ class Version20170526072754 extends AbstractMigration implements ContainerAwareI
 
         $images = [
             'http://karklenusodyba.lt/wp-content/uploads/2014/11/Karklenu-sodyba3.jpg',
-            'http://www.apievestuves.lt/g/originals/50/Karvio%20dvaras%20sodybos%20vestuvems.7.jpg',
+            'http://villatop.lt/wp-content/uploads/2014/06/BM9A2642.jpg',
             'http://www.plotai.lt/media/objects/550x356/sodyba-ivio.jpg?1443450435',
             'http://www.atostogoskaime.lt/uploads/Sodybos/images/galleries/1504/zoomfan/picture-018.jpg'
             ];
@@ -52,7 +52,6 @@ class Version20170526072754 extends AbstractMigration implements ContainerAwareI
 
             $newImage->setUrl($image);
             $newImage->setName($name);
-
 
             $em->persist($newImage);
         }

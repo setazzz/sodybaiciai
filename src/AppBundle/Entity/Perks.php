@@ -3,6 +3,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Sodyba;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use AppBundle\Entity\SodybaPerks;
 
 /**
  * Perks
@@ -29,10 +33,11 @@ class Perks
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="perks")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * Bidirectional - Many comments are favorited by many users (INVERSE SIDE)
+     *
+     * @ORM\ManyToMany(targetEntity="Sodyba", mappedBy="perks")
      */
-    private $user;
+    private $sodybaPerks;
 
     /**
      * Get id
@@ -68,28 +73,21 @@ class Perks
         return $this->name;
     }
 
-    /**
-     * Set user
-     *
-     * @param \AppBundle\Entity\User $user
-     *
-     * @return Perks
-     */
-    public function setUser(\AppBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
 
-        return $this;
+    /**
+     * @return mixed
+     */
+    public function getSodybaPerks()
+    {
+        return $this->sodybaPerks;
     }
 
     /**
-     * Get user
-     *
-     * @return \AppBundle\Entity\User
+     * @param mixed $sodybaPerks
      */
-    public function getUser()
+    public function setSodybaPerks($sodybaPerks)
     {
-        return $this->user;
+        $this->sodybaPerks = $sodybaPerks;
     }
 }
 

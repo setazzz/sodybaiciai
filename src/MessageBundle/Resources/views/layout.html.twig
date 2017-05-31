@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset={{ _charset }}" />
+    <title>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+</head>
+
+<body>
+
+<h1>{% trans from 'FOSMessageBundle' %}messenger{% endtrans %}</h1>
+
+<ul>
+    <li><a href="{{ url('fos_message_inbox') }}">{% trans from 'FOSMessageBundle' %}inbox{% endtrans %}</a></li>
+    <li><a href="{{ url('fos_message_sent') }}">{% trans from 'FOSMessageBundle' %}sent{% endtrans %}</a></li>
+    <li><a href="{{ url('fos_message_deleted') }}">{% trans from 'FOSMessageBundle' %}deleted{% endtrans %}</a></li>
+    <li>Labas</li>
+</ul>
+
+{% block fos_message_content %}{% endblock %}
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+
+</body>
+</html>

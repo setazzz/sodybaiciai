@@ -19,14 +19,9 @@ class DetailsController extends Controller
      */
     public function indexAction(Request $request, $id)
     {
-
-
         $em = $this->getDoctrine()->getManager();
 
         $sodyba = $this->getDoctrine()->getRepository('AppBundle:Sodyba')->find($id);
-
-//        var_dump($sodyba);
-//        die;
 
         // replace this example code with whatever you need
         return $this->render('details/details.html.twig', [

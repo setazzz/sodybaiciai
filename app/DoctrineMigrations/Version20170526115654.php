@@ -41,6 +41,7 @@ class Version20170526115654 extends AbstractMigration implements ContainerAwareI
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba Aukštadvaryje');
         $sodyba->setBody('Sodyba ant ežero kranto');
+        $sodyba->setPrice(200);
         $sodyba->setCategory($categories[0]);
         $sodyba->setImage($images[0]);
         $em->persist($sodyba);
@@ -48,13 +49,15 @@ class Version20170526115654 extends AbstractMigration implements ContainerAwareI
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba Trakuose');
         $sodyba->setBody('Sodyba ant ežero kranto su pirtimi');
+        $sodyba->setPrice(400);
         $sodyba->setCategory($categories[0]);
         $sodyba->setImage($images[1]);
         $em->persist($sodyba);
 
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba Labanoro girioje');
-        $sodyba->setBody('Sodyba visuryje miško');
+        $sodyba->setBody('Sodyba viduryje miško');
+        $sodyba->setPrice(250);
         $sodyba->setCategory($categories[1]);
         $sodyba->setImage($images[2]);
         $em->persist($sodyba);
@@ -62,6 +65,7 @@ class Version20170526115654 extends AbstractMigration implements ContainerAwareI
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba prie Neries');
         $sodyba->setBody('Sodyba ant upės kranto');
+        $sodyba->setPrice(300);
         $sodyba->setCategory($categories[1]);
         $sodyba->setImage($images[3]);
         $em->persist($sodyba);

@@ -38,8 +38,9 @@
             <div>
                 <h1>
                     {{ sodyba.title }}
-                    <br/>
                 </h1>
+                <p>{{ sodyba.price }} EUR</p>
+                <br/>
                 <p>
                     <img src="{{ sodyba.image.url }}">
                 </p>
@@ -51,6 +52,11 @@
                     {{ sodyba.body }}
                     <br/>
                 </p>
+                <ul>
+                    {% for perks in sodyba.perks %}
+                        <li>{{ perks.name }}</li>
+                    {% endfor %}
+                </ul>
             </div>
 
         </div>

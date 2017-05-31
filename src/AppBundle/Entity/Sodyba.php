@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Entity\Perks;
 
 /**
  * BlogPost
@@ -36,6 +37,13 @@ class Sodyba
     private $body;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="price", type="integer")
+     */
+    private $price;
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="draft", type="boolean")
@@ -47,15 +55,18 @@ class Sodyba
      */
     private $category;
 
-//    /**
-//     * @ORM\ManyToOne(targetEntity="SodybaPerks", inversedBy="blogPosts")
-//     */
-//    private $sodybaPerks;
-
     /**
      * @ORM\ManyToOne(targetEntity="Image", inversedBy="blogPosts")
      */
     private $image;
+
+    /**
+     * Bidirectional - Many users have Many favorite comments (OWNING SIDE)
+     *
+     * @ORM\ManyToMany(targetEntity="Perks", inversedBy="sodybaPerks")
+     * @ORM\JoinTable(name="sodyba_perks")
+     */
+    private $perks;
 
 
     /**
@@ -117,6 +128,24 @@ class Sodyba
     }
 
     /**
+     * @return int
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param int $price
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+    }
+
+
+
+    /**
      * Set draft
      *
      * @param boolean $draft
@@ -150,21 +179,21 @@ class Sodyba
         return $this->category;
     }
 
-//    /**
-//     * @return mixed
-//     */
-//    public function getSodybaPerks()
-//    {
-//        return $this->sodybaPerks;
-//    }
-//
-//    /**
-//     * @param mixed $perks
-//     */
-//    public function setSodybaPerks($perks)
-//    {
-//        $this->sodybaPerks = $sodybaPerks;
-//    }
+    /**
+     * @return mixed
+     */
+    public function getPerks()
+    {
+        return $this->perks;
+    }
+
+    /**
+     * @param mixed $perks
+     */
+    public function setPerks($perks)
+    {
+        $this->sodybaPerks = $perks;
+    }
 
     /**
      * @return mixed

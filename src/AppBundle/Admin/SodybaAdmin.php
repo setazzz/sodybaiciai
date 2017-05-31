@@ -13,19 +13,12 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use AppBundle\Entity\Sodyba;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class SodybaAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-//        $formMapper
-//            ->add('title', 'text')
-//            ->add('body', 'textarea')
-//            ->add('category', 'sonata_type_model', array(
-//                'class' => 'AppBundle\Entity\Category',
-//                'property' => 'name',
-//            ))
-//        ;
         $formMapper
             ->with('Content', array('class' => 'col-md-9'))
                 ->add('title', 'text')
@@ -36,19 +29,18 @@ class SodybaAdmin extends AbstractAdmin
                 ->add('category', 'sonata_type_model', array(
                     'class' => 'AppBundle\Entity\Category',
                     'property' => 'name',
-//                    'multiple' => true,
-//                    'expanded' => true,
                 ))
-            ->add('image', 'sonata_type_model', array(
-                'class' => 'AppBundle\Entity\Image',
-                'property' => 'name',
-//                    'multiple' => true,
-//                    'expanded' => true,
-            ))
-//                ->add('sodyba_perks', 'sonata_type_model', array(
-//                    'class' => 'AppBundle\Entity\SodybaPerks',
-//                    'property' => 'name',
-//                ))
+                ->add('price', 'text')
+                ->add('image', 'sonata_type_model', array(
+                    'class' => 'AppBundle\Entity\Image',
+                    'property' => 'name',
+                ))
+                ->add('perks', EntityType::class, array(
+                    'class' => 'AppBundle:Perks',
+                    'choice_label' => 'name',
+                    'multiple' => true,
+                    'expanded' => true,
+                ))
             ->end()
         ;
     }

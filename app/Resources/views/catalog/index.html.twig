@@ -38,19 +38,8 @@
             <div>
                 <ul>
                     {% for item in list %}
-                        <a href="{{ path('details', {'id': item.id}) }}">
-                            <li>
-                                {{ item.title }}
-                                <br/>
-                                {% if item.image.url %}
-                                    <img src="{{ item.image.url }}">
-                                {% endif %}
-                                <br/>
-                                {{ item.body }}
-                                <br/>
-                                {{ item.category.name }}
-                                <br/>
-                            </li>
+                        <a href="{{ path('details', {'id': item.id}) }}" class="box-link">
+                            {{ include('catalog/box.html.twig') }}
                         </a>
                     {% endfor %}
                 </ul>

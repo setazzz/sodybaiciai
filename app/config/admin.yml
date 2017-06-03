@@ -1,0 +1,9 @@
+services:
+    app.admin.car:
+        class: AppBundle\Admin\CarAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Demo, label: Car }
+        arguments:
+            - null
+            - AppBundle\Entity\Car
+            - AppBundle:CRUD

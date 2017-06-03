@@ -19,6 +19,12 @@
             "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
         ]
     },
+	"repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/Katph/bkng-bundle/"
+        }
+    ],
     "require": {
         "php": ">=5.5.9",
         "doctrine/doctrine-bundle": "^1.6",
@@ -36,7 +42,9 @@
         "symfony/polyfill-apcu": "^1.0",
         "symfony/swiftmailer-bundle": "^2.3.10",
         "symfony/symfony": "3.2.*",
-        "twig/twig": "^1.0||^2.0"
+        "twig/twig": "^1.0||^2.0",
+		"katph/melifaro-booking-bundle": "dev-master"
+
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

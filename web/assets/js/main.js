@@ -1,3 +1,5 @@
 $(function() {
-  alert();
+  // alert();
+    $('#form_duration').daterangepicker();
+
 });

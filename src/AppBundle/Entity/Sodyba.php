@@ -210,5 +210,10 @@ class Sodyba
     {
         $this->image = $image;
     }
+
+    public function __toString()
+    {
+        return (string) $this->getTitle();
+    }
 }
 

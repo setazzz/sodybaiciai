@@ -59,7 +59,7 @@ class SodybaAdmin extends AbstractAdmin
     {
         return $object instanceof Sodyba
             ? $object->getTitle()
-            : 'Blog Post'; // shown in the breadcrumb on the create view
+            : 'Sodyba'; // shown in the breadcrumb on the create view
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

@@ -27,3 +27,15 @@ services:
         arguments: [~, AppBundle\Entity\Image, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Image }
+    admin.request:
+            class: AppBundle\Admin\BookingRequestAdmin
+            arguments: [~, AppBundle\Entity\BookingRequest, AppBundle:CRUD]
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: Rezervacijų valdymas, label: Užklausos }
+            calls:
+                - [setTemplates, [{edit: CRUD/display_booking_request.html.twig,}]]
+    admin.booking:
+                class: AppBundle\Admin\BookingAdmin
+                arguments: [~, AppBundle\Entity\Booking, ~]
+                tags:
+                    - { name: sonata.admin, manager_type: orm, group: Rezervacijų valdymas, label: Rezervacijos }

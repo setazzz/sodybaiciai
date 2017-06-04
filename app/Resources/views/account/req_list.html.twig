@@ -1,0 +1,27 @@
+{% extends 'account/my_account.html.twig' %}
+{%  block body %}
+    {{  parent() }}
+    {% if is_granted('ROLE_USER') == true %}
+
+        <div class="panel panel-default col-md-9">
+        <div class="panel-heading">
+            <h1>Mano paskyra</h1>
+        </div>
+        <div class="panel-body">
+            <h2>Užklausos</h2>
+            {% for req in requests %}
+                {% if req.confirmed %}
+                    <span class="alert-success">Patvirtinta</span>
+                {% else %}
+                    <span class="alert-danger">Laukiama patvirtinimo</span>
+                {% endif %}
+                    {{ req.item }}
+                {{ req.start|date("Y-m-d") }}
+                {{ req.end|date("Y-m-d") }}
+                <a href="/thread/{{ req.thread }}" class="btn btn-default">Pokalbis</a>
+                <br>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock body %}

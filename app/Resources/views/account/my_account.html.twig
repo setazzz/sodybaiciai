@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% if is_granted('ROLE_USER') == true %}
+        <div class="panel panel-default col-md-3">
+            <div class="panel-heading">
+                <h3>{{ app.user.username }}</h3>
+            </div>
+            <div class="panel-body">
+                <a href="{{ path('fos_user_change_password') }}" class="btn btn-default">Change password</a>
+                <a href="{{ path('fos_user_security_logout') }}" class="btn btn-default">Logout</a>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

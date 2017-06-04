@@ -9,6 +9,8 @@ class CRUDController extends Controller
 {
     public function confirmAction($id)
     {
+        $em = $this->getDoctrine()->getManager();
+
         $bookingRequest = $this->admin->getSubject();
         $booker = $this->get('booker');
 
@@ -16,15 +18,25 @@ class CRUDController extends Controller
             throw new NotFoundHttpException(sprintf('unable to find the object with id : %s', $id));
         }
 
-        if ($booker->isAvailableForPeriod($bookingRequest->getItem(), $bookingRequest->getStart(), $bookingRequest->getEnd())) {
-           if ($booker->book($bookingRequest->getItem(), $bookingRequest->getStart(), $bookingRequest->getEnd())){
+        if ($booker->isAvailableForPeriod(
+                $bookingRequest->getItem(),
+                $bookingRequest->getStart(),
+                $bookingRequest->getEnd())) {
+           if ($booker->book(
+                   $bookingRequest->getItem(),
+                   $bookingRequest->getStart(),
+                   $bookingRequest->getEnd())) {
+               $bookingRequest->setConfirmed(true);
+               $em->persist($bookingRequest);
+               $em->flush();
                $this->addFlash('sonata_flash_success', 'Rezervuota sėkmingai');
            }
         }
         else {
-//            throw new NotFoundHttpException(sprintf('unable to find date'));
-            $this->addFlash('sonata_flash_warning', 'Data jau užimta');
-
+            $bookingRequest->setConfirmed(false);
+            $em->persist($bookingRequest);
+            $em->flush();
+            $this->addFlash('sonata_flash_warning', 'Data jau užimta ar negalima');
         }
 
 
@@ -35,21 +47,12 @@ class CRUDController extends Controller
     public function editAction($id = null)
     {
         $bookingRequest = $this->admin->getSubject();
-        $user = $bookingRequest->getUser();
-
         $provider = $this->get('fos_message.provider');
-
-        $threads = $provider->getInboxThreads();
         $conversation = $provider->getThread($bookingRequest->getThread());
 
         $replyForm = $this->container->get('fos_message.reply_form.factory')->create($conversation);
         $formHandler = $this->container->get('fos_message.reply_form.handler');
-
-        if ($message = $formHandler->process($replyForm)) {
-//            return new RedirectResponse($this->container->get('router')->generate('fos_message_thread_view', array(
-//                'threadId' => $message->getThread()->getId(),
-//            )));
-        }
+        $formHandler->process($replyForm);
 
 
 
@@ -89,7 +92,6 @@ class CRUDController extends Controller
             if ($isFormValid && (!$this->isInPreviewMode() || $this->isPreviewApproved())) {
                 try {
                     $object = $this->admin->update($object);
-
                     if ($this->isXmlHttpRequest()) {
                         return $this->renderJson(array(
                             'result' => 'ok',
@@ -140,6 +142,7 @@ class CRUDController extends Controller
                 $this->admin->getShow();
             }
         }
+
 
         $formView = $form->createView();
         $replyForm = $replyForm->createView();

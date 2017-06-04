@@ -170,3 +170,9 @@ body {
   color: #889298;
   padding: 20px 0;
 }
+#mainNav, footer {
+  background: black!important;
+}
+.box .body {
+  color:white!important;
+}

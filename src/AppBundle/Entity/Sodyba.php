@@ -61,8 +61,6 @@ class Sodyba
     private $image;
 
     /**
-     * Bidirectional - Many users have Many favorite comments (OWNING SIDE)
-     *
      * @ORM\ManyToMany(targetEntity="Perks", inversedBy="sodybaPerks")
      * @ORM\JoinTable(name="sodyba_perks")
      */

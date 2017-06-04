@@ -1,34 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>Sveiki atvykę!</h1>
-                <h2>Sodybaičių šeimos sodybų rezervacijos sistema.</h2>
-            </div>
 
-            <div id="status">
-                <p>
-                    Ši svetainė yra kurta tik mokymosi tikslais, visa joje esanti informacija yra išgalvota. Jei kas nors sutampa su realybe, tai yra tik atsitiktinumas.
-                </p>
-            </div>
-
-            <div>
-                <p>
-                    <a href="/login">Login</a>
-                    <br/>
-                    <a href="/register">Register</a>
-                    <br/>
-                    <a href="/admin">Admin panel</a>
-                    <br/>
-                    <a href="/messages">Messages</a>
-                    <br/>
-                    <a href="{{ path('catalog') }}">Back to Catalog</a>
-                    <br/>
-                </p>
-            </div>
-
+            {% for message in app.session.flashBag.get('notice') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <div id="status">
                 <p>
                     Sodybos aprašymas
@@ -59,11 +37,14 @@
                         <li>{{ perks.name }}</li>
                     {% endfor %}
                 </ul>
-                {{ melifaro_booking_calendar(sodyba, "now", 2) }}
-                {{ form(form) }}
-
+                <h3>Rezervuoti</h3>
+                {% if is_granted('ROLE_USER') == true %}
+                    {{ melifaro_booking_calendar(sodyba, "now", 2) }}
+                    {{ form(form) }}
+                {% else %}
+                    <p class="bg-warning">Rezervuoti sodybą gali tik <a href="{{ path('fos_user_registration_register') }}">registruoti</a>  vartotojai</p>
+                {% endif %}
             </div>
 
-        </div>
-    </div>
+
 {% endblock %}

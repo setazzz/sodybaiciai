@@ -1,21 +1,14 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Matas
- * Date: 2017.05.25
- * Time: 11:57
- */
 
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\BookingRequest;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-//use Sonata\AdminBundle\Form\Type\Filter\DateType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class DetailsController extends Controller
 {
@@ -28,14 +21,59 @@ class DetailsController extends Controller
 
         $sodyba = $this->getDoctrine()->getRepository('AppBundle:Sodyba')->find($id);
         $booker = $this->get('booker');
-//        $start = new DateTime("2017-06-02");
-//        $end = new DateTime("2017-06-03");
-
-//        dump($booker->book($sodyba, $start, $end));
         $form = $this->createFormBuilder()
             ->add('duration', TextType::class)
+            ->add('message', TextareaType::class)
             ->add('save', SubmitType::class, array('label' => 'Rezervuoti'))
             ->getForm();
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $data = $form->getData();
+            $range = explode(" - ",$data['duration']);
+            $start = new \DateTime($range[0]);
+            $end = new \DateTime($range[1]);
+
+            if ($booker->isAvailableForPeriod($id, $start, $end)) {
+
+                $recipients = $em->getRepository('AppBundle:User')->findByRole("ROLE_SUPER_ADMIN");
+                $threadBuilder = $this->get('fos_message.composer')->newThread();
+                foreach ($recipients as $recipient) {
+                    $threadBuilder->addRecipient($recipient);
+                }
+                $threadBuilder
+                    ->setSender($this->get('security.token_storage')->getToken()->getUser())
+                    ->setSubject($sodyba->getTitle())
+                    ->setBody($data['message']);
+                $sender = $this->get('fos_message.sender');
+                $sender->send($threadBuilder->getMessage());
+
+                $bookingRequest = new BookingRequest();
+                $bookingRequest->setUser($this->get('security.token_storage')->getToken()->getUser());
+                $bookingRequest->setStart($start);
+                $bookingRequest->setEnd($end);
+                $bookingRequest->setItem($sodyba);
+                $bookingRequest->setThread($threadBuilder->getMessage()->getThread()->getId());
+
+                $em->persist($bookingRequest);
+                $em->flush();
+                dump($bookingRequest);
+
+                $this->addFlash(
+                    'notice',
+                    'Your form was saved!'
+                );
+            } else {
+                $this->addFlash(
+                    'notice',
+                    'Error!'
+                );
+            }
+
+            return $this->redirectToRoute('myaccount');
+        }
+
         return $this->render('details/details.html.twig', [
             'sodyba' => $sodyba,
             'form' => $form->createView(),

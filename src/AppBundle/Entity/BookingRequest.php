@@ -51,6 +51,37 @@ class BookingRequest
     protected $thread;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="confirmed", type="boolean")
+     */
+    protected $confirmed = false;
+
+    /**
+     * Set confirmed
+     *
+     * @param boolean $confirmed
+     *
+     * @return BookingRequest
+     */
+    public function setConfirmed($confirmed)
+    {
+        $this->confirmed = $confirmed;
+
+        return $this;
+    }
+
+    /**
+     * Is confirmed
+     *
+     * @return bool
+     */
+    public function isConfirmed()
+    {
+        return $this->confirmed;
+    }
+
+    /**
      * @return Thread
      */
     public function getThread()

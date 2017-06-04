@@ -51,12 +51,12 @@ class Sodyba
     private $draft = false;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Category", inversedBy="blogPosts")
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="sodyba")
      */
     private $category;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Image", inversedBy="blogPosts")
+     * @ORM\ManyToOne(targetEntity="Image", inversedBy="sodyba")
      */
     private $image;
 

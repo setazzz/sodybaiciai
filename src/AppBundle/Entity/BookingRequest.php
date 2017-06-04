@@ -43,6 +43,14 @@ class BookingRequest
     protected $user;
 
     /**
+     * @var Sodyba
+     *
+     * @ORM\ManyToOne(targetEntity="Sodyba")
+     * @ORM\JoinColumn(name="property_id", referencedColumnName="id")
+     */
+    protected $item;
+
+    /**
      * @var Thread
      *
      * @ORM\Column(name="thread_id", type="integer")
@@ -57,45 +65,6 @@ class BookingRequest
      */
     protected $confirmed = false;
 
-    /**
-     * Set confirmed
-     *
-     * @param boolean $confirmed
-     *
-     * @return BookingRequest
-     */
-    public function setConfirmed($confirmed)
-    {
-        $this->confirmed = $confirmed;
-
-        return $this;
-    }
-
-    /**
-     * Is confirmed
-     *
-     * @return bool
-     */
-    public function isConfirmed()
-    {
-        return $this->confirmed;
-    }
-
-    /**
-     * @return Thread
-     */
-    public function getThread()
-    {
-        return $this->thread;
-    }
-
-    /**
-     * @param Thread $thread
-     */
-    public function setThread($thread)
-    {
-        $this->thread = $thread;
-    }
 
 
     /**
@@ -171,14 +140,6 @@ class BookingRequest
     }
 
     /**
-     * @var Sodyba
-     *
-     * @ORM\ManyToOne(targetEntity="Sodyba", inversedBy="bookingrequest")
-     * @ORM\JoinColumn(name="property_id", referencedColumnName="id")
-     */
-    protected $item;
-
-    /**
      * @return Sodyba
      */
     public function getItem()
@@ -192,6 +153,46 @@ class BookingRequest
     public function setItem($item)
     {
         $this->item = $item;
+    }
+
+    /**
+     * @return Thread
+     */
+    public function getThread()
+    {
+        return $this->thread;
+    }
+
+    /**
+     * @param Thread $thread
+     */
+    public function setThread($thread)
+    {
+        $this->thread = $thread;
+    }
+
+    /**
+     * Set confirmed
+     *
+     * @param boolean $confirmed
+     *
+     * @return BookingRequest
+     */
+    public function setConfirmed($confirmed)
+    {
+        $this->confirmed = $confirmed;
+
+        return $this;
+    }
+
+    /**
+     * Is confirmed
+     *
+     * @return bool
+     */
+    public function isConfirmed()
+    {
+        return $this->confirmed;
     }
 
 

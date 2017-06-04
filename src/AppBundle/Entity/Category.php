@@ -34,6 +34,7 @@ class Category
      */
     private $sodyba;
 
+
     public function __construct()
     {
         $this->sodyba = new ArrayCollection();

@@ -18,7 +18,15 @@
                     {{ req.item }}
                 {{ req.start|date("Y-m-d") }}
                 {{ req.end|date("Y-m-d") }}
-                <a href="/thread/{{ req.thread }}" class="btn btn-default">Pokalbis</a>
+                <a href="/thread/{{ req.thread }}" class="btn btn-default">Pokalbis
+                    {% if threads %}
+                        {% for thread in threads %}
+                            {% if not fos_message_is_read(thread) %}
+                                ({% trans from 'FOSMessageBundle' %}new{% endtrans %})
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </a>
                 <br>
             {% endfor %}
         </div>

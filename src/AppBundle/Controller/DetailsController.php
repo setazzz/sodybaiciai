@@ -58,7 +58,6 @@ class DetailsController extends Controller
 
                 $em->persist($bookingRequest);
                 $em->flush();
-                dump($bookingRequest);
 
                 $this->addFlash(
                     'notice',

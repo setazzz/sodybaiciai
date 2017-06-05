@@ -40,7 +40,7 @@ class Version20170526115654 extends AbstractMigration implements ContainerAwareI
 
         $sodyba = new Sodyba();
         $sodyba->setTitle('Sodyba Aukštadvaryje');
-        $sodyba->setBody('Sodyba ant ežero kranto');
+        $sodyba->setBody('Sodyba ant ežero kranto. Čia yra daug papildomo nereikalingo teksto, kurį reikia nukirpti iki 100 simbolių. ');
         $sodyba->setPrice(200);
         $sodyba->setCategory($categories[0]);
         $sodyba->setImage($images[0]);

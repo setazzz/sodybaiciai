@@ -1,22 +1,3 @@
-{#<li class="box">#}
-    {#<div class="box-image">#}
-        {#{% if item.image %}#}
-            {#<img src="{{ item.image.url }}", class="box-image">#}
-        {#{% endif %}#}
-    {#</div>#}
-    {#<div class="description">#}
-        {#<h3>{{ item.title }}</h3>#}
-        {#<p>{{ item.price }} EUR</p>#}
-        {#<br/>#}
-        {#<h6>{{ item.category.name }}</h6>#}
-        {#<br/>#}
-        {#<p>{{ item.body }}</p>#}
-        {#</div>#}
-{#</li>#}
-
-
-
-
 <div class="entry-content">
     <div class="" id="">
         <div class="container-fluid">
@@ -36,73 +17,13 @@
                                                 <h3 class="price">{{ item.price }} EUR</h3>
                                                 <h3 class="header"><a href="{{ path('details', {'id': item.id}) }}" title="{{ item.title }}">{{ item.title }}</a></h3>
                                                 <h4 class="header" style="color: #fff;">{{ item.category.name }}</h4>
-                                                <p class="box body" style="color: white">{{ item.body|truncate(100,true) }}</p>
+                                                <p class="box body" style="color: white">{{ item.body[:100] ~ '...' }}</p>
                                                 <div class="button">
-                                                    <a href="{{ path('details', {'id': item.id}) }}" title="A beach house at Baja California peninsula" class="btn btn-default"><span class="btn__text">Read more</span></a>
+                                                    <a href="{{ path('details', {'id': item.id}) }}" title="{{ item.title }}" class="btn btn-default"><span class="btn__text">Read more</span></a>
                                                 </div>
                                             </figcaption>
                                         </figure>
                                     </div>
-                                    {#<div class="imageInner col-xs-12 col-md-6 col-xl-6">#}
-                                        {#<figure class="rentWrapper">#}
-                                            {#<div class="">#}
-                                                {#<img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_20348621_original-960x567.jpg" alt="Hunting mansion in Kentucky" width="960" height="567">#}
-                                                {#<div class="status"><span>rent</span></div>#}
-                                            {#</div>#}
-                                            {#<figcaption class="textWrapper">#}
-                                                {#<h3 class="price">$1,200.00</h3>#}
-                                                {#<h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/hunting-mansion-in-kentucky/" title="Hunting mansion in Kentucky">Hunting mansion in Kentucky</a></h3>#}
-                                                {#<div class="button">#}
-                                                    {#<a href="https://ld-wp.template-help.com/wordpress_61275/properties/hunting-mansion-in-kentucky/" title="Hunting mansion in Kentucky" class="btn btn-default"><span class="btn__text">Read more</span></a>#}
-                                                {#</div>#}
-                                            {#</figcaption>#}
-                                        {#</figure>#}
-                                    {#</div>#}
-                                    {#<div class="imageInner col-xs-12 col-md-4 col-xl-4">#}
-                                        {#<figure class="rentWrapper">#}
-                                            {#<div class="">#}
-                                                {#<img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_46803805_original-640x483.jpg" alt="Erie Lakeside house, MI" width="640" height="483">#}
-                                                {#<div class="status"><span>rent</span></div>#}
-                                            {#</div>#}
-                                            {#<figcaption class="textWrapper">#}
-                                                {#<h3 class="price">$3,400.00</h3>#}
-                                                {#<h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/erie-lakeside-house-mi/" title="Erie Lakeside house, MI">Erie Lakeside house, MI</a></h3>#}
-                                                {#<div class="button">#}
-                                                    {#<a href="https://ld-wp.template-help.com/wordpress_61275/properties/erie-lakeside-house-mi/" title="Erie Lakeside house, MI" class="btn btn-default"><span class="btn__text">Read more</span></a>#}
-                                                {#</div>#}
-                                            {#</figcaption>#}
-                                        {#</figure>#}
-                                    {#</div>#}
-                                    {#<div class="imageInner col-xs-12 col-md-4 col-xl-4">#}
-                                        {#<figure class="rentWrapper">#}
-                                            {#<div class="">#}
-                                                {#<img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_29214455_original-640x483.jpg" alt="A new townhouse in  the Appalachian  mountains" width="640" height="483">#}
-                                                {#<div class="status"><span>reny</span></div>#}
-                                            {#</div>#}
-                                            {#<figcaption class="textWrapper">#}
-                                                {#<h3 class="price">$3,400.00</h3>#}
-                                                {#<h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-new-townhouse-in-the-appalachian-mountains/" title="A new townhouse in  the Appalachian  mountains">A new townhouse in the Appalac…</a></h3>#}
-                                                {#<div class="button">#}
-                                                    {#<a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-new-townhouse-in-the-appalachian-mountains/" title="A new townhouse in  the Appalachian  mountains" class="btn btn-default"><span class="btn__text">Read more</span></a>#}
-                                                {#</div>#}
-                                            {#</figcaption>#}
-                                        {#</figure>#}
-                                    {#</div>#}
-                                    {#<div class="imageInner col-xs-12 col-md-4 col-xl-4">#}
-                                        {#<figure class="rentWrapper">#}
-                                            {#<div class="">#}
-                                                {#<img class="" src="https://ld-wp.template-help.com/wordpress_61275/wp-content/uploads/2016/05/Depositphotos_46803805_original-640x483.jpg" alt="A beach house in Orlando, Florida" width="640" height="483">#}
-                                                {#<div class="status"><span>rent</span></div>#}
-                                            {#</div>#}
-                                            {#<figcaption class="textWrapper">#}
-                                                {#<h3 class="price">$2,030.00</h3>#}
-                                                {#<h3 class="header"><a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-beach-house-in-orlando-florida-2/" title="A beach house in Orlando, Florida">A beach house in Orlando, Flor…</a></h3>#}
-                                                {#<div class="button">#}
-                                                    {#<a href="https://ld-wp.template-help.com/wordpress_61275/properties/a-beach-house-in-orlando-florida-2/" title="A beach house in Orlando, Florida" class="btn btn-default"><span class="btn__text">Read more</span></a>#}
-                                                {#</div>#}
-                                            {#</figcaption>#}
-                                        {#</figure>#}
-                                    {#</div>#}
                                 </div>
                             </aside>
                         </div>

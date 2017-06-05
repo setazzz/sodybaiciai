@@ -65,12 +65,6 @@ class BookingRequestAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-//        $datagridMapper
-//            ->add('title')
-//            ->add('category', null, array(), 'entity', array(
-//                'class'    => 'AppBundle\Entity\Category',
-//                'choice_label' => 'name', // In Symfony2: 'property' => 'name'
-//            ));
     }
 
 

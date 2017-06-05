@@ -27,24 +27,6 @@ class BookingAdmin extends AbstractAdmin
                 'property' => 'title',
             ))
             ->end()
-//
-//            ->with('Pokalbis', array('class' => 'col-md-6'))
-//            ->add('category', 'sonata_type_model', array(
-//                'class' => 'AppBundle\Entity\Category',
-//                'property' => 'name',
-//            ))
-//            ->add('price', 'text')
-//            ->add('image', 'sonata_type_model', array(
-//                'class' => 'AppBundle\Entity\Image',
-//                'property' => 'name',
-//            ))
-//            ->add('perks', EntityType::class, array(
-//                'class' => 'AppBundle:Perks',
-//                'choice_label' => 'name',
-//                'multiple' => true,
-//                'expanded' => true,
-//            ))
-//            ->end()
         ;
 
 
@@ -77,12 +59,6 @@ class BookingAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-//        $datagridMapper
-//            ->add('title')
-//            ->add('category', null, array(), 'entity', array(
-//                'class'    => 'AppBundle\Entity\Category',
-//                'choice_label' => 'name', // In Symfony2: 'property' => 'name'
-//            ));
     }
 
 

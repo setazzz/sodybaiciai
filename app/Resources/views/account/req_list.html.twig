@@ -9,19 +9,26 @@
         </div>
         <div class="panel-body">
             <h2>Užklausos</h2>
-            {% for req in requests %}
-                {% if req.confirmed %}
-                    <span class="alert-success">Patvirtinta</span>
-                {% else %}
-                    <span class="alert-danger">Laukiama patvirtinimo</span>
-                {% endif %}
-                    {{ req.item }}
-                {{ req.start|date("Y-m-d") }}
-                {{ req.end|date("Y-m-d") }}
-                <a href="/thread/{{ req.thread }}" class="btn btn-default">Pokalbis</a>
-                <br>
-            {% endfor %}
+            {% if requests %}
+                {% for req in requests %}
+                    {% if req.confirmed %}
+                        <span class="alert-success">Patvirtinta</span>
+                    {% else %}
+                        <span class="alert-danger">Laukiama patvirtinimo</span>
+                    {% endif %}
+                        {{ req.item }}
+                    {{ req.start|date("Y-m-d") }}
+                    {{ req.end|date("Y-m-d") }}
+                    <a href="/thread/{{ req.thread }}" class="btn btn-default">Pokalbis</a>
+                    <br>
+                {% endfor %}
+            {% else %}
+                <div class="alert alert-info">
+                    <span>Užklausų nerasta.</span>
+                </div>
+            {% endif %}
         </div>
     </div>
     {% endif %}
+    </div>
 {% endblock body %}

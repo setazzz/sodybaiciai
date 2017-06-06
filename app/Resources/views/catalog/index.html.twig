@@ -1,13 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+
+
+    <select id="category">
+        <option value="" onclick="">Pasirinkite kategoriją</option>
+
+        {% for category in categories %}
+                <option value="{{  url('category_catalog', {'id': category.id}) }}">{{ category.name }}</option>
+            {% endfor %}
+    </select>
             <div>
                 <ul>
-                    {% for item in list %}
-                        {#<a href="{{ path('details', {'id': item.id}) }}" class="box-link">#}
-                            {{ include('catalog/box.html.twig') }}
-                        {#</a>#}
-                    {% endfor %}
+                    {% if list %}
+                        {% for item in list %}
+                                {{ include('catalog/box.html.twig') }}
+                        {% endfor %}
+                    {% else %}
+                    <div class="alert alert-info">
+
+                    <span class="alert-info">Sodybų nerasta. Pasirinkite kitą kategoriją.</span>
+                    </div>
+                    {% endif %}
                 </ul>
             </div>
 

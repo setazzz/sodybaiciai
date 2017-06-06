@@ -25,4 +25,9 @@ $(function() {
         $('form select').attr("disabled",true);
         $('.sonata-ba-form-actions').hide();
     }
+    if ($('#category').length>0) {
+        $("#category").change(function () {
+            document.location.href = $(this).val();
+        });
+    }
 });

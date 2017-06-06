@@ -34,8 +34,3 @@ services:
                 - { name: sonata.admin, manager_type: orm, group: Rezervacijų valdymas, label: Užklausos }
             calls:
                 - [setTemplates, [{edit: CRUD/display_booking_request.html.twig,}]]
-    admin.booking:
-                class: AppBundle\Admin\BookingAdmin
-                arguments: [~, AppBundle\Entity\Booking, ~]
-                tags:
-                    - { name: sonata.admin, manager_type: orm, group: Rezervacijų valdymas, label: Rezervacijos }

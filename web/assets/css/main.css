@@ -176,3 +176,6 @@ body {
 .box .body {
   color:white!important;
 }
+.md{
+  max-width: 600px;
+}

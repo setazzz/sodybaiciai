@@ -7,25 +7,27 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            <div id="status">
-                <p>
-                    Sodybos aprašymas
-                </p>
-            </div>
-
+    <div class="panel col-md-3" ></div>
+    <div class="panel panel-default col-md-6">
+        <div id="status" class="panel-title">
+            <h2>
+                Sodybos aprašymas
+            </h2>
+        </div>
+        <div class="panel-body">
             <div>
                 <h1>
                     {{ sodyba.title }}
                 </h1>
-                <p>{{ sodyba.price }} EUR</p>
+                <p>Kaina - {{ sodyba.price }} EUR</p>
                 <br/>
                 {% if sodyba.image %}
-                <p>
-                    <img src="{{ sodyba.image.url }}">
-                </p>
+                    <p>
+                        <img src="{{ sodyba.image.url }}" class="md">
+                    </p>
                 {% endif %}
                 <h3>
-                    {{ sodyba.category.name }}
+                    Kategorija - {{ sodyba.category.name }}
                     <br/>
                 </h3>
                 <p>
@@ -45,6 +47,8 @@
                     <p class="bg-warning">Rezervuoti sodybą gali tik <a href="{{ path('fos_user_registration_register') }}">registruoti</a>  vartotojai</p>
                 {% endif %}
             </div>
-
+        </div>
+    </div>
+    <div class="panel col-md-3" ></div>
 
 {% endblock %}

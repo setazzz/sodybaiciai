@@ -4,6 +4,7 @@ $(function() {
             locale: {
                 format: 'YYYY-MM-DD'
             },
+            drops: "up",
             isInvalidDate: function (date) {
                 var ans = 0;
                 bookings.forEach(function (entry) {

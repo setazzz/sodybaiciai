@@ -10,16 +10,10 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}
         {% endblock %}
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
         <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
-        {#<link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">#}
         <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <script src="{{ asset('assets/js/main.js') }}"></script>
-        {#<script type="text/javascript" src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}"></script>#}
-        <script type="text/javascript" src="{{ asset('bundles/sonatacore/vendor/moment/min/moment.min.js') }}"></script>
-        <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     </head>
     <body>
@@ -28,7 +22,7 @@
         <div class="container invert">
           <div class="row">
             <div class="col-xs-12">
-              <p class="topPanelMessage">Please <a href="{{ path('fos_user_security_login') }}">login</a> or <a href="{{ path('fos_user_registration_register') }}">register</a> to create a new listing</p>
+              <p class="topPanelMessage">Kad užsirezervuoti sodybą, prašome <a href="{{ path('fos_user_security_login') }}">prisijungti</a> ar <a href="{{ path('fos_user_registration_register') }}">užsiregistruoti</a></p>
             </div>
           </div>
         </div>
@@ -46,22 +40,22 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav navbar-left" id="navigationBar">
                 <li>
-                  <a href="{{ path('homepage') }}">Home</a>
+                  <a href="{{ path('homepage') }}">Pradžia</a>
                 </li>
                 <li>
-                  <a href="{{ path('catalog') }}">Catalog</a>
+                  <a href="{{ path('catalog') }}">Katalogas</a>
                 </li>
                 <li>
-                  <a href="{{ path('myaccount') }}">Account</a>
+                  <a href="{{ path('myaccount') }}">Paskyra</a>
                 </li>
                   {% if is_granted('ROLE_SUPER_ADMIN') %}
                     <li>
-                      <a href="/admin">Admin panel</a>
+                      <a href="/admin">Administravimas</a>
                     </li>
                   {% endif %}
                   {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                       <li>
-                          <a href="{{ path('fos_user_security_logout') }}" class="nav logout">Logout</a>
+                          <a href="{{ path('fos_user_security_logout') }}" class="nav logout">Atsijungti</a>
                       </li>
                   {% endif %}
               </ul>
@@ -71,13 +65,17 @@
 
 
         {% block body %}{% endblock %}
-        <footer id="footer">
-          <div class="container">
-            <span>All rights reserved</span>
-          </div>
-        </footer>
-        {% block javascripts %}
 
-        {% endblock %}
     </body>
+    <footer id="footer">
+        <div class="container">
+            <span>All rights reserved</span>
+        </div>
+    </footer>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ asset('bundles/sonatacore/vendor/moment/min/moment.min.js') }}"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+        <script src="{{ asset('assets/js/main.js') }}"></script>
+    {% block javascripts %}
+    {% endblock %}
 </html>

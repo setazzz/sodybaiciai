@@ -60,7 +60,6 @@ doctrine:
         #   3. Uncomment next line:
         #path: '%database_path%'
         server_version: 5.3
-        url: '%env(DATABASE_URL)%'
 
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'

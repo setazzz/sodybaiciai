@@ -7,7 +7,7 @@
                         <div class="clearfix">
                             <aside id="" class="">
                                 <div class="boxHolder row">
-                                    <div class="imageInner col-xs-12 col-md-6 col-xl-6">
+                                    <div class="imageInner col-xs-12 col-xl-6">
                                         <figure class="rentWrapper">
                                             <div class="">
                                                 <img class="" src="{{ item.image.url }}" alt="{{ item.title }}" width="960" height="567">
@@ -19,7 +19,7 @@
                                                 <h4 class="header" style="color: #fff;">{{ item.category.name }}</h4>
                                                 <p class="box body" style="color: white">{{ item.body[:100] ~ '...' }}</p>
                                                 <div class="button">
-                                                    <a href="{{ path('details', {'id': item.id}) }}" title="{{ item.title }}" class="btn btn-default"><span class="btn__text">Read more</span></a>
+                                                    <a href="{{ path('details', {'id': item.id}) }}" title="{{ item.title }}" class="btn btn-default"><span class="btn__text">Daugiau</span></a>
                                                 </div>
                                             </figcaption>
                                         </figure>
@@ -33,3 +33,4 @@
         </div>
     </div>
 </div>
+<div class="panel col-md-3" ></div>

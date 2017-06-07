@@ -7,9 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use FOS\MessageBundle\Provider\ProviderInterface;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\HttpFoundation\Response;
 
 
 class DefaultController extends Controller
@@ -28,10 +26,8 @@ class DefaultController extends Controller
     public function accountAction(Request $request)
     {
         $threads = $this->getProvider()->getInboxThreads();
-        $em = $this->getDoctrine()->getManager();
         $currentUser = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
         $requests = $this->getDoctrine()->getRepository('AppBundle:BookingRequest')->findBy(['user' => $currentUser]);
-        $reservations = $this->getDoctrine()->getRepository('AppBundle:Booking')->findAll();
 
         return $this->render('account/req_list.html.twig', [
             'requests' => $requests,

@@ -22,8 +22,8 @@ class DetailsController extends Controller
         $sodyba = $this->getDoctrine()->getRepository('AppBundle:Sodyba')->find($id);
         $booker = $this->get('booker');
         $form = $this->createFormBuilder()
-            ->add('duration', TextType::class)
-            ->add('message', TextareaType::class)
+            ->add('duration', TextType::class, array('label' => 'Trukmė'))
+            ->add('message', TextareaType::class, array('label' => 'Žinutė'))
             ->add('save', SubmitType::class, array('label' => 'Rezervuoti'))
             ->getForm();
 

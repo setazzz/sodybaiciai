@@ -1,15 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="panel col-md-3" ></div>
 
 
-    <select id="category">
+    <select id="category" class="input-lg">
         <option value="" onclick="">Pasirinkite kategoriją</option>
 
         {% for category in categories %}
                 <option value="{{  url('category_catalog', {'id': category.id}) }}">{{ category.name }}</option>
             {% endfor %}
     </select>
+    <br>
             <div>
                 <ul>
                     {% if list %}
@@ -27,4 +29,5 @@
 
         </div>
     </div>
+
 {% endblock %}
